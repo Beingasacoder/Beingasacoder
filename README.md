@@ -1,7 +1,10 @@
 # Hi, I'm Muhammad Umar Farooq
-**I am currently working on hybrid app development (Flutter)!**
-**I have total experience of 2 years including HTML, CSS, JS and Dart**
-**A passionate Full Stack Mobile developer || Flutter || ReactNative**
+
+**I am currently working on Hybrid App Development (Flutter)!**  
+
+**I have 2 years of experience in HTML, CSS, JavaScript, and Dart.**  
+
+**A Passionate Full Stack Mobile Developer | Flutter | React Native**
 
 Email Me 👉 ✉️ **umarit112@gmail.com** For Collaboration/Project or Anything Else. 😊😊
 ## 🌐 Socials:
@@ -31,7 +34,3 @@ Email Me 👉 ✉️ **umarit112@gmail.com** For Collaboration/Project or Anythi
 
 ### 🔝 Top Contributed Repo
 ![](https://github-contributor-stats.vercel.app/api?username=Beingasacoder&limit=5&theme=dark&combine_all_yearly_contributions=true)
-
----
-
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
