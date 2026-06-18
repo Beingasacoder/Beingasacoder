@@ -2,9 +2,9 @@
 
 **I am currently working on Hybrid App Development (Flutter)!**  
 
-**I have 2 years of experience in HTML, CSS, JavaScript, and Dart.**  
+**I have 2 years of experience in Flutter, React Native, and Firebase.**  
 
-**A Passionate Full Stack Mobile Developer | Flutter | React Native**
+*A Passionate Full Stack Mobile Developer*
 
 Email Me 👉 ✉️ **umarit112@gmail.com** For Collaboration/Project or Anything Else. 😊😊
 ## 🌐 Socials:
