@@ -210,9 +210,9 @@ function initializeScrollTrigger() {
 // ── Stats Counter ──────────────────────────────────────────
 function animateCounts() {
   const stats = [
-    { id: 'stat-projects',   limit: 75 },
-    { id: 'stat-clients',    limit: 40 },
-    { id: 'stat-experience', limit: 4  }
+    { id: 'stat-projects',   limit: 9 },
+    { id: 'stat-clients',    limit: 7 },
+    { id: 'stat-experience', limit: 2  }
   ];
   stats.forEach(stat => {
     const el = document.getElementById(stat.id);
