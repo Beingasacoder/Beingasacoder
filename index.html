@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M Umar Farooq Portfolio</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bgDark: '#090D1A',
+              bgSlate: '#0F172A',
+              primary: '#6366F1',
+              secondary: '#8B5CF6',
+              accent: '#06B6D4',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Advanced CSS Features -->
+
+</head>
+
+<body class="bg-brand-bgDark text-slate-100 font-sans transition-colors duration-500 overflow-x-hidden dark">
+
+  <div id="loader"
+    class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#090D1A] transition-all duration-700">
+    <div class="relative flex flex-col items-center">
+
+      <div class="mt-8 text-center">
+        <h2 class="text-2xl font-bold tracking-widest text-white uppercase font-mono">My Flutter Portfolio</h2>
+        <p class="text-[10px] uppercase tracking-[0.4em] text-cyan-400 font-bold mt-2 animate-pulse">Flutter Architect
+          Portfolio</p>
+      </div>
+      <div class="w-48 h-[2px] mt-6 rounded-full overflow-hidden bg-slate-800">
+        <div id="loading-bar"
+          class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 w-0 transition-all duration-[2000ms] ease-out">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Background Particles Layer -->
+  <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+  <!-- Global Ambient Light Glows -->
+  <div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-500/10 glow-orb z-0"></div>
+  <div class="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-purple-500/10 glow-orb z-0"></div>
+
+  <!-- Navigation Header Bar -->
+  <header id="nav-header"
+    class="fixed top-0 left-0 w-full z-40 transition-all duration-300 border-b border-transparent py-5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
+      <!-- Brand Mark -->
+      <a href="#hero" class="flex items-center space-x-3 group">
+        <div
+          class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-md shadow-indigo-500/20">
+          <span class="text-white font-bold text-lg font-mono">UF</span>
+        </div>
+        <div>
+          <span
+            class="text-lg font-bold tracking-tight bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">Umar
+            Farooq</span>
+          <span class="block text-[9px] uppercase tracking-widest text-slate-400 font-bold">Flutter Expert</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden lg:flex items-center space-x-8">
+        <a href="#about"
+          class="text-sm font-medium tracking-wide text-slate-300 hover:text-white transition-colors relative py-1 group">About<span
+            class="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-500 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#services"
+          class="text-sm font-medium tracking-wide text-slate-300 hover:text-white transition-colors relative py-1 group">Services<span
+            class="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-500 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#experience"
+          class="text-sm font-medium tracking-wide text-slate-300 hover:text-white transition-colors relative py-1 group">Experience<span
+            class="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-500 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#portfolio"
+          class="text-sm font-medium tracking-wide text-slate-300 hover:text-white transition-colors relative py-1 group">Portfolio<span
+            class="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-500 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#testimonials"
+          class="text-sm font-medium tracking-wide text-slate-300 hover:text-white transition-colors relative py-1 group">Testimonials<span
+            class="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-500 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#contact"
+          class="text-sm font-medium tracking-wide text-slate-300 hover:text-white transition-colors relative py-1 group">Contact
+          Info<span
+            class="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-500 transition-all duration-300 group-hover:w-full"></span></a>
+      </nav>
+
+      <!-- Menu Call To Action & Mode Switch -->
+      <div class="hidden lg:flex items-center space-x-4">
+        <!-- Theme toggle switch -->
+        <button id="theme-toggle"
+          class="p-2.5 rounded-xl border border-slate-800/80 bg-slate-900/60 text-yellow-400 hover:bg-slate-800 transition-colors"
+          title="Toggle color scheme">
+          <svg id="theme-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+          </svg>
+          <svg id="theme-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <a href="#book-a-call"
+          class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-semibold rounded-xl group bg-gradient-to-br from-indigo-500 via-purple-500 to-cyan-500 text-white">
+          <span
+            class="relative px-5 py-2.5 transition-all ease-in duration-75 rounded-xl bg-brand-bgSlate group-hover:bg-opacity-0 transition-colors">Book
+            VIP Call</span>
+        </a>
+      </div>
+
+      <!-- Hamburger menu trigger (Mobile) -->
+      <div class="flex items-center space-x-3 lg:hidden">
+        <button id="theme-toggle-mobile"
+          class="p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-yellow-400">
+          <svg class="theme-sun-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+          </svg>
+          <svg class="theme-moon-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+        <button id="menu-toggle" class="p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 text-slate-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-drawer"
+      class="hidden border-t border-slate-800/80 bg-brand-bgDark/95 backdrop-blur-lg mt-3 p-6 space-y-4 shadow-2xl">
+      <div class="flex flex-col space-y-4">
+        <a href="#about" class="mobile-link text-base font-semibold py-2 text-slate-300">About Story</a>
+        <a href="#services" class="mobile-link text-base font-semibold py-2 text-slate-300">Core Services</a>
+        <a href="#experience" class="mobile-link text-base font-semibold py-2 text-slate-300">My Experience</a>
+        <a href="#portfolio" class="mobile-link text-base font-semibold py-2 text-slate-300">Work Portfolio</a>
+        <a href="#testimonials" class="mobile-link text-base font-semibold py-2 text-slate-300">Praises</a>
+        <a href="#contact" class="mobile-link text-base font-semibold py-2 text-slate-300">Contact Info</a>
+        <hr class="border-slate-800">
+        <a href="#book-a-call"
+          class="mobile-link text-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-3.5 rounded-xl font-bold block shadow-lg shadow-indigo-500/20">Book
+          VIP Call</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen pt-36 pb-20 flex items-center justify-center overflow-hidden z-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left Info Content -->
+      <div class="space-y-8 text-center lg:text-left animate-on-scroll animate-visible">
+        <div
+          class="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/30 px-4 py-2 rounded-full backdrop-blur-md">
+          <span class="flex h-2.5 w-2.5 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
+          </span>
+          <span
+            class="text-xs font-bold tracking-wider bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent uppercase font-mono">Open
+            to Premier Mobile Contracts</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+          M Umar Farooq <br>
+          <span class="bg-gradient-to-r from-indigo-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
+            Premium Flutter Experiences</span>
+        </h1>
+
+        <p class="text-lg md:text-xl leading-relaxed text-slate-400 max-w-xl mx-auto lg:mx-0">
+          Hi, I'm <strong class="text-white">Muhammad Umar Farooq</strong>. An elite Cross-Platform Mobile Engineer &
+          digital creator architecting ultra-smooth apps with top-tier user interfaces.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
+          <a href="#portfolio"
+            class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-700 text-white shadow-xl shadow-indigo-500/30 hover:scale-[1.03] transition-all duration-300 text-center hover-shimmer">Explore
+            Projects</a>
+          <a href="#book-a-call"
+            class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 transition-all duration-300 text-center">Book
+            a Call</a>
+        </div>
+
+        <!-- Small tech badges showcase -->
+        <div class="pt-6 border-t border-slate-800/60">
+          <p class="text-xs font-bold tracking-widest text-slate-400 uppercase font-mono mb-4">Core Technology Focus</p>
+          <div class="flex flex-wrap justify-center lg:justify-start items-center gap-3">
+            <span
+              class="px-3.5 py-1.5 rounded-lg border border-slate-800/80 bg-slate-900/40 text-xs font-semibold text-slate-300 flex items-center gap-1.5"><span
+                class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Flutter / Dart</span>
+            <span
+              class="px-3.5 py-1.5 rounded-lg border border-slate-800/80 bg-slate-900/40 text-xs font-semibold text-slate-300 flex items-center gap-1.5"><span
+                class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>Provider</span>
+            <span
+              class="px-3.5 py-1.5 rounded-lg border border-slate-800/80 bg-slate-900/40 text-xs font-semibold text-slate-300 flex items-center gap-1.5"><span
+                class="w-1.5 h-1.5 rounded-full bg-green-500"></span>GitHub</span>
+            <span
+              class="px-3.5 py-1.5 rounded-lg border border-slate-800/80 bg-slate-900/40 text-xs font-semibold text-slate-300 flex items-center gap-1.5"><span
+                class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>Firebase</span>
+
+            <span
+              class="px-3.5 py-1.5 rounded-lg border border-slate-800/80 bg-slate-900/40 text-xs font-semibold text-slate-300 flex items-center gap-1.5"><span
+                class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>REST API</span>
+            <span
+              class="px-3.5 py-1.5 rounded-lg border border-slate-800/80 bg-slate-900/40 text-xs font-semibold text-slate-300 flex items-center gap-1.5"><span
+                class="w-1.5 h-1.5 rounded-full bg-green-500"></span>MVVM Architecture</span>
+            <span
+              class="px-3.5 py-1.5 rounded-lg border border-slate-800/80 bg-slate-900/40 text-xs font-semibold text-slate-300 flex items-center gap-1.5"><span
+                class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>HTML/CSS</span>
+            <span></span>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Right Visual Portrait Box (1:1 Frame) -->
+      <div class="flex justify-center items-center relative animate-on-scroll animate-visible">
+        <div class="absolute w-80 h-80 rounded-full bg-indigo-500/10 blur-[80px] -top-5 -left-5"></div>
+        <div class="absolute w-80 h-80 rounded-full bg-cyan-500/10 blur-[80px] -bottom-5 -right-5"></div>
+
+        <!-- 1:1 Aspect Frame -->
+        <div
+          class="relative w-full max-w-[420px] aspect-square rounded-[40px] p-2 bg-gradient-to-tr from-indigo-500 via-purple-500 to-cyan-400 shadow-2xl group transition-all duration-500 hover:scale-[1.02]">
+          <div class="w-full h-full rounded-[34px] overflow-hidden relative bg-slate-900">
+            <img src="assets/images/portal.jpeg" alt="Muhammad Umar Farooq Profile Portrait"
+              class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000'">
+            <!-- Inline info overlay -->
+            <div
+              class="absolute bottom-4 left-4 right-4 bg-slate-950/80 backdrop-blur-md border border-slate-800 p-4 rounded-2xl flex justify-between items-center z-10">
+              <div>
+                <span class="text-[9px] text-cyan-400 font-extrabold uppercase tracking-widest block font-mono">Flutter
+                  Engineer</span>
+                <span class="text-sm font-bold text-white block">Umar Farooq</span>
+              </div>
+              <div class="flex items-center space-x-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+                <span class="text-[10px] text-slate-300 font-bold uppercase tracking-wider font-mono">Available</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Left visual tag -->
+          <div
+            class="absolute -left-6 bottom-12 p-3.5 rounded-2xl bg-slate-950/90 border border-indigo-500/40 backdrop-blur-md shadow-2xl max-w-[150px] hidden md:block">
+            <div class="flex items-center space-x-2">
+              <span class="text-xl">🛠️</span>
+              <div>
+                <h6 class="text-[10px] font-extrabold text-white uppercase tracking-wider font-mono">Clean Code</h6>
+                <p class="text-[9px] text-indigo-400">100% Solid Principles</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right visual tag -->
+          <div
+            class="absolute -right-6 top-12 p-3.5 rounded-2xl bg-slate-950/90 border border-cyan-500/40 backdrop-blur-md shadow-2xl max-w-[150px] hidden md:block">
+            <div class="flex items-center space-x-2">
+              <span class="text-xl">✨</span>
+              <div>
+                <h6 class="text-[10px] font-extrabold text-white uppercase tracking-wider font-mono">Interfaces</h6>
+                <p class="text-[9px] text-cyan-400">Silky 120Hz Animation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-28 relative z-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
+        <span
+          class="text-xs font-bold tracking-[0.3em] bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent uppercase font-mono mb-3 block">Mobile
+          app development
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Who is Muhammad Umar Farooq?</h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Text Story -->
+        <div class="space-y-6 animate-on-scroll">
+          <h3
+            class="text-2xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            Bridging Complex Logic with Premium Aesthetics</h3>
+          <p class="text-base leading-relaxed text-slate-400">
+            <strong>I'm</strong> a passionate Flutter Developer with a Bachelor of Science in Information Technology (BS
+            IT). He has around 1 year of hands-on experience in developing modern, responsive, and user-friendly mobile
+            applications using Flutter.
+          </p>
+          <p class="text-base leading-relaxed text-slate-400">
+            My design decisions are influenced heavily by an aesthetic foundation in graphics composition and cinematic
+            animation styling. This dual expertise ensures that your app functions wonderfully and acts as an immediate
+            high-end representation of your product standard.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div
+              class="p-5 rounded-2xl border border-slate-800/80 bg-slate-900/30 hover:border-indigo-500/30 transition-all">
+              <h4 class="font-bold text-indigo-400 flex items-center space-x-2">
+                <span>🚀</span><span>Performance Optimization</span>
+              </h4>
+              <p class="text-xs text-slate-400 mt-2">Maximum frame rates, image scaling, and optimal local storage
+                management.</p>
+            </div>
+            <div
+              class="p-5 rounded-2xl border border-slate-800/80 bg-slate-900/30 hover:border-purple-500/30 transition-all">
+              <h4 class="font-bold text-purple-400 flex items-center space-x-2">
+                <span>🎨</span><span>Dynamic UI Foundations</span>
+              </h4>
+              <p class="text-xs text-slate-400 mt-2">Bespoke animations, matching dark/light visual layers, and clean
+                grid layouts.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Timeline -->
+        <div class="space-y-8 animate-on-scroll">
+          <h3 class="text-xl font-bold text-slate-300 font-mono flex items-center space-x-2">
+            <span>⏳</span><span>My Journey</span>
+          </h3>
+
+          <div class="relative border-l-2 border-indigo-500/20 pl-8 ml-4 space-y-8">
+            <!-- Timeline Element 1 -->
+            <div class="relative">
+              <span
+                class="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 border-4 border-brand-bgDark flex items-center justify-center"></span>
+              <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">2026 - PRESENT</span>
+              <h4 class="text-lg font-bold text-white mt-1">Individual Flutter Developer</h4>
+              <p class="text-sm mt-2 text-slate-400">Structuring large enterprise frameworks, modular multi-package
+                directories, dynamic charts integration, and advanced state flow patterns.</p>
+            </div>
+
+            <!-- Timeline Element 2 -->
+            <div class="relative">
+              <span
+                class="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 border-4 border-brand-bgDark flex items-center justify-center"></span>
+              <span class="text-xs font-bold text-purple-400 uppercase tracking-widest font-mono">2023 - 2024</span>
+              <h4 class="text-lg font-bold text-white mt-1">Intern in Thinkcode IT Solutions</h4>
+              <p class="text-sm mt-2 text-slate-400">Completed a professional internship focused on Flutter mobile
+                application development.
+                Developed responsive and user-friendly mobile app interfaces using Flutter.
+                Worked with REST APIs and Firebase integration for real-time data management.
+                Implemented clean UI/UX designs and optimized application performance.
+                Collaborated with development teams to test, debug, and maintain mobile applications.
+                Gained hands-on experience in state management, code organization, and software development best
+                practices..</p>
+            </div>
+
+            <!-- Timeline Element 3 -->
+            <div class="relative">
+              <span
+                class="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-500 border-4 border-brand-bgDark flex items-center justify-center"></span>
+              <span class="text-xs font-bold text-cyan-400 uppercase tracking-widest font-mono">2019 - 2021</span>
+              <h4 class="text-lg font-bold text-white mt-1">Creative Designer/Editor</h4>
+              <p class="text-sm mt-2 text-slate-400">Designed professional social media posts, banners, advertisements,
+                and branding materials.
+                Created engaging video content for social media platforms, marketing campaigns, and promotional
+                projects.
+                Edited videos with smooth transitions, motion graphics, visual effects, and audio enhancements.
+           .</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-28 relative z-20 bg-slate-950/20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
+        <span
+          class="text-xs font-bold tracking-[0.3em] bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent uppercase font-mono mb-3 block">Expert
+          Offerings</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Premium Client Engagements</h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div
+          class="glass-panel hover-shimmer group p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between animate-on-scroll">
+          <div>
+            <div class="flex justify-between items-center mb-6">
+              <span class="text-4xl">📱</span>
+              <span
+                class="text-[9px] uppercase tracking-wider bg-indigo-500/15 border border-indigo-500/20 text-indigo-400 px-2.5 py-1 rounded-full font-bold font-mono">Flagship</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">Flutter App
+              Development</h3>
+            <p class="text-sm leading-relaxed text-slate-400">Single codebase, gorgeous native output. Optimized for
+              responsive alignments across phones, folding displays, tablets, and web viewports.</p>
+          </div>
+          <a href="#book-a-call"
+            class="inline-flex items-center space-x-2 text-xs font-bold text-indigo-400 group-hover:text-cyan-400 transition-colors mt-6">
+            <span>Initialize Consultation</span><span>→</span>
+          </a>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="glass-panel hover-shimmer group p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between animate-on-scroll">
+          <div>
+            <div class="flex justify-between items-center mb-6">
+              <span class="text-4xl">🤖</span>
+              <span
+                class="text-[9px] uppercase tracking-wider bg-cyan-500/15 border border-cyan-500/20 text-cyan-400 px-2.5 py-1 rounded-full font-bold font-mono">Native
+                SDK</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Android App
+              Development</h3>
+            <p class="text-sm leading-relaxed text-slate-400">Targeted integration with local Android systems, hardware
+              level background pipelines, custom sensors, and Google Play SDKs.</p>
+          </div>
+          <a href="#book-a-call"
+            class="inline-flex items-center space-x-2 text-xs font-bold text-indigo-400 group-hover:text-cyan-400 transition-colors mt-6">
+            <span>Initialize Consultation</span><span>→</span>
+          </a>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="glass-panel hover-shimmer group p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between animate-on-scroll">
+          <div>
+            <div class="flex justify-between items-center mb-6">
+              <span class="text-4xl">🍎</span>
+              <span
+                class="text-[9px] uppercase tracking-wider bg-purple-500/15 border border-purple-500/20 text-purple-400 px-2.5 py-1 rounded-full font-bold font-mono">iOS
+                Design</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">iOS App
+              Development</h3>
+            <p class="text-sm leading-relaxed text-slate-400">High-fidelity Apple standard compliance. Gorgeous widget
+              structures, dynamic transitions, and swift integration flows.</p>
+          </div>
+          <a href="#book-a-call"
+            class="inline-flex items-center space-x-2 text-xs font-bold text-indigo-400 group-hover:text-cyan-400 transition-colors mt-6">
+            <span>Initialize Consultation</span><span>→</span>
+          </a>
+        </div>
+
+        <!-- Card 4 -->
+        <div
+          class="glass-panel hover-shimmer group p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between animate-on-scroll">
+          <div>
+            <div class="flex justify-between items-center mb-6">
+              <span class="text-4xl">🎨</span>
+              <span
+                class="text-[9px] uppercase tracking-wider bg-amber-500/15 border border-amber-500/20 text-amber-400 px-2.5 py-1 rounded-full font-bold font-mono">Bespoke</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors">Graphics
+              Designing</h3>
+            <p class="text-sm leading-relaxed text-slate-400">Elegant Vector identity kits, premium application icon
+              frames, splash screens, and localized layout illustrations representing your values.</p>
+          </div>
+          <a href="#book-a-call"
+            class="inline-flex items-center space-x-2 text-xs font-bold text-indigo-400 group-hover:text-cyan-400 transition-colors mt-6">
+            <span>Initialize Consultation</span><span>→</span>
+          </a>
+        </div>
+
+        <!-- Card 5 -->
+        <div
+          class="glass-panel hover-shimmer group p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between animate-on-scroll">
+          <div>
+            <div class="flex justify-between items-center mb-6">
+              <span class="text-4xl">🎬</span>
+              <span
+                class="text-[9px] uppercase tracking-wider bg-rose-500/15 border border-rose-500/20 text-rose-400 px-2.5 py-1 rounded-full font-bold font-mono">Production</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-rose-400 transition-colors">Video Editing</h3>
+            <p class="text-sm leading-relaxed text-slate-400">Modern app promotional loops, application store visual
+              previews, cinematic pacing, color corrections, and master audio design.</p>
+          </div>
+          <a href="#book-a-call"
+            class="inline-flex items-center space-x-2 text-xs font-bold text-indigo-400 group-hover:text-cyan-400 transition-colors mt-6">
+            <span>Initialize Consultation</span><span>→</span>
+          </a>
+        </div>
+
+        <!-- Premium Bonus Feature Service Offer -->
+        <div
+          class="relative overflow-hidden p-8 rounded-3xl border border-indigo-500/30 bg-gradient-to-br from-indigo-950/40 via-purple-950/20 to-cyan-950/40 flex flex-col justify-between animate-on-scroll">
+          <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-indigo-500/10 blur-xl"></div>
+          <div>
+            <span class="text-4xl mb-4 block">✨</span>
+            <h3 class="text-xl font-bold text-white mb-3">Custom Enterprise Solutions</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">Need custom offline storage engines, Bluetooth
+              communication frameworks, or live telemetry systems? Let's design it from scratch.</p>
+          </div>
+          <a href="#contact"
+            class="px-5 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-xs font-bold text-center mt-6 shadow-md shadow-indigo-500/10 hover:shadow-indigo-500/20 transition-all">Get
+            Enterprise Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Skills Section -->
+  <section id="experience" class="py-28 relative z-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <!-- Statistics Banner counters -->
+      <div
+        class="stats-banner grid grid-cols-1 md:grid-cols-3 gap-8 p-10 rounded-3xl border border-slate-800/80 bg-slate-900/40 backdrop-blur-md mb-24 animate-on-scroll">
+        <div class="text-center md:border-r border-slate-800/60 last:border-0 p-4">
+          <h3
+            class="text-5xl font-extrabold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent font-mono"
+            id="stat-projects" data-target="75">0</h3>
+          <p class="text-xs uppercase tracking-widest text-slate-400 font-bold mt-2 font-mono">Projects Completed</p>
+        </div>
+        <div class="text-center md:border-r border-slate-800/60 last:border-0 p-4">
+          <h3
+            class="text-5xl font-extrabold bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent font-mono"
+            id="stat-clients" data-target="40">0</h3>
+          <p class="text-xs uppercase tracking-widest text-slate-400 font-bold mt-2 font-mono">Happy Clients</p>
+        </div>
+        <div class="text-center p-4">
+          <h3
+            class="text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent font-mono"
+            id="stat-experience" data-target="4">0</h3>
+          <p class="text-xs uppercase tracking-widest text-slate-400 font-bold mt-2 font-mono">Years Experience</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Skill meters text info (kept once) -->
+        <div class="space-y-6 animate-on-scroll">
+          <span
+            class="text-xs font-bold tracking-[0.3em] bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent uppercase font-mono block">Tech
+            Metrics</span>
+          <h2 class="text-3xl font-extrabold text-white">Elite Engineering Execution</h2>
+          <p class="text-base text-slate-400 leading-relaxed">
+            I build native-performing cross-platform products. Every asset transition, background process, network
+            handshake, and state mutation is engineered with maximum efficiency.
+          </p>
+          <div class="p-6 rounded-2xl border border-slate-800/80 bg-slate-900/20">
+            <h4 class="font-bold text-slate-300 flex items-center space-x-2">
+              <span>⚡</span><span>My Quality Metrics</span>
+            </h4>
+            <ul class="text-xs text-slate-400 space-y-2 mt-4 list-disc list-inside">
+              <li>Optimal frame-rate delivery (60 / 120 FPS target)</li>
+              <li>Standardized Clean Architecture & Domain Driven Directories</li>
+              <li>Strict offline cache, local state engines, and telemetry monitoring</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Skill meters bars -->
+        <div class="space-y-6 animate-on-scroll">
+          <!-- Meter 1 -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-sm font-bold font-mono">
+              <span class="text-slate-300">Flutter Framework</span>
+              <span class="text-cyan-400">98%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden block">
+              <div class="skill-meter h-full bg-cyan-400 rounded-full transition-all duration-[1500ms] block"
+                style="width: 0%; min-height: 100%;" data-width="98%"></div>
+            </div>
+          </div>
+
+          <!-- Meter 2 -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-sm font-bold font-mono">
+              <span class="text-slate-300">Dart Programming Language</span>
+              <span class="text-indigo-500">95%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden block">
+              <div class="skill-meter h-full bg-indigo-500 rounded-full transition-all duration-[1500ms] block"
+                style="width: 0%; min-height: 100%;" data-width="95%"></div>
+            </div>
+          </div>
+
+          <!-- Meter 3 -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-sm font-bold font-mono">
+              <span class="text-slate-300">Firebase & Cloud Integrations</span>
+              <span class="text-purple-500">90%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden block">
+              <div class="skill-meter h-full bg-purple-500 rounded-full transition-all duration-[1500ms] block"
+                style="width: 0%; min-height: 100%;" data-width="90%"></div>
+            </div>
+          </div>
+
+          <!-- Meter 4 -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-sm font-bold font-mono">
+              <span class="text-slate-300">REST APIs & Integrations</span>
+              <span class="text-cyan-400">92%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden block">
+              <div class="skill-meter h-full bg-cyan-400 rounded-full transition-all duration-[1500ms] block"
+                style="width: 0%; min-height: 100%;" data-width="92%"></div>
+            </div>
+          </div>
+
+          <!-- Meter 5 -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-sm font-bold font-mono">
+              <span class="text-slate-300">Provider (State Management)</span>
+              <span class="text-indigo-500">94%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden block">
+              <div class="skill-meter h-full bg-indigo-500 rounded-full transition-all duration-[1500ms] block"
+                style="width: 0%; min-height: 100%;" data-width="94%"></div>
+            </div>
+          </div>
+
+          <!-- Meter 6 -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-sm font-bold font-mono">
+              <span class="text-slate-300">Canva Pro & Design Tools</span>
+              <span class="text-purple-500">85%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden block">
+              <div class="skill-meter h-full bg-purple-500 rounded-full transition-all duration-[1500ms] block"
+                style="width: 0%; min-height: 100%;" data-width="85%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Portfolio Projects Grid -->
+  <section id="portfolio" class="py-28 relative z-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
+        <span
+          class="text-xs font-bold tracking-[0.3em] bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent uppercase font-mono mb-3 block">Bespoke
+          Artifacts</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Curated Work Cases</h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Tab Filters -->
+      <div class="flex flex-wrap justify-center items-center gap-3 mb-12 animate-on-scroll">
+        <button onclick="filterPortfolio('All')"
+          class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold transition-all border border-transparent bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/20"
+          data-category="All">All</button>
+        <button onclick="filterPortfolio('Mobile Apps')"
+          class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold transition-all border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white"
+          data-category="Mobile Apps">Mobile Apps</button>
+        <button onclick="filterPortfolio('UI/UX Design')"
+          class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold transition-all border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white"
+          data-category="UI/UX Design">UI/UX Design</button>
+      </div>
+
+      <!-- Grid container -->
+      <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Project 1: Traveler Book -->
+        <div
+          class="portfolio-item glass-panel group cursor-pointer rounded-3xl overflow-hidden relative flex flex-col justify-between transition-all duration-300 hover:border-cyan-500/50 animate-on-scroll"
+          data-cat="Mobile Apps" onclick="openProjectModal(0)">
+          <div class="relative h-56 overflow-hidden border-b border-slate-800/60">
+            <img src="assets/images/traveler_home.png" alt="Traveler Book App"
+              class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <span class="absolute top-4 left-4 text-[10px] uppercase font-bold bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 px-2.5 py-1 rounded-full font-mono">Mobile Apps</span>
+            <div class="absolute bottom-3 right-3 flex gap-1.5">
+              <span class="text-[9px] bg-black/60 text-white px-2 py-0.5 rounded font-mono">Flutter</span>
+              <span class="text-[9px] bg-black/60 text-cyan-400 px-2 py-0.5 rounded font-mono">Firebase</span>
+            </div>
+          </div>
+          <div class="p-6 space-y-3">
+            <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Traveler Book</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-2">Social media app for travelers — share destinations, discover places, comment & rate with real-time Firebase backend.</p>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="text-[9px] font-bold px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono">Flutter</span>
+              <span class="text-[9px] font-bold px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono">Firebase</span>
+              <span class="text-[9px] font-bold px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono">Provider</span>
+              <span class="text-[9px] font-bold px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono">Social App</span>
+            </div>
+          </div>
+          <div class="px-6 pb-5 pt-2 flex justify-between items-center text-xs font-bold text-cyan-400">
+            <span>View Case Study</span><span>→</span>
+          </div>
+        </div>
+
+        <!-- Project 2: Chachacha Restaurant -->
+        <div
+          class="portfolio-item glass-panel group cursor-pointer rounded-3xl overflow-hidden relative flex flex-col justify-between transition-all duration-300 hover:border-amber-500/50 animate-on-scroll"
+          data-cat="Mobile Apps" onclick="openProjectModal(1)">
+          <div class="relative h-56 overflow-hidden border-b border-slate-800/60">
+            <img src="assets/images/chacha_home.png" alt="Chachacha Restaurant App"
+              class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <span class="absolute top-4 left-4 text-[10px] uppercase font-bold bg-amber-500/20 border border-amber-500/30 text-amber-400 px-2.5 py-1 rounded-full font-mono">Mobile Apps</span>
+            <div class="absolute bottom-3 right-3 flex gap-1.5">
+              <span class="text-[9px] bg-black/60 text-white px-2 py-0.5 rounded font-mono">Flutter</span>
+              <span class="text-[9px] bg-black/60 text-amber-400 px-2 py-0.5 rounded font-mono">REST API</span>
+            </div>
+          </div>
+          <div class="p-6 space-y-3">
+            <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">Chachacha Restaurant</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-2">Home delivery ordering app for Bahawalpur restaurant — hot deals, categories, cart, real-time order tracking via Firebase & REST API.</p>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="text-[9px] font-bold px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono">Flutter</span>
+              <span class="text-[9px] font-bold px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono">Firebase</span>
+              <span class="text-[9px] font-bold px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono">REST API</span>
+              <span class="text-[9px] font-bold px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono">Provider</span>
+            </div>
+          </div>
+          <div class="px-6 pb-5 pt-2 flex justify-between items-center text-xs font-bold text-amber-400">
+            <span>View Case Study</span><span>→</span>
+          </div>
+        </div>
+
+        <!-- Project 3: Entertainment / Service App UI -->
+        <div
+          class="portfolio-item glass-panel group cursor-pointer rounded-3xl overflow-hidden relative flex flex-col justify-between transition-all duration-300 hover:border-purple-500/50 animate-on-scroll"
+          data-cat="UI/UX Design" onclick="openProjectModal(2)">
+          <div class="relative h-56 overflow-hidden border-b border-slate-800/60">
+            <div class="grid grid-cols-2 h-full">
+              <img src="assets/images/entertain_home.png" alt="Entertainment App"
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+              <img src="assets/images/service_splash.png" alt="Service App"
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <span class="absolute top-4 left-4 text-[10px] uppercase font-bold bg-purple-500/20 border border-purple-500/30 text-purple-400 px-2.5 py-1 rounded-full font-mono">UI/UX Design</span>
+          </div>
+          <div class="p-6 space-y-3">
+            <h3 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors">Service & Learning UI</h3>
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-2">Two premium Figma-to-Flutter UI designs — a home services booking app and a kids educational/entertainment platform.</p>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="text-[9px] font-bold px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono">Figma</span>
+              <span class="text-[9px] font-bold px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono">Flutter UI</span>
+              <span class="text-[9px] font-bold px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono">Pixel Perfect</span>
+            </div>
+          </div>
+          <div class="px-6 pb-5 pt-2 flex justify-between items-center text-xs font-bold text-purple-400">
+            <span>View Case Study</span><span>→</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Testimonials Carousel -->
+  <section id="testimonials" class="py-28 relative z-20">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center">
+
+      <span
+        class="text-xs font-bold tracking-[0.3em] bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent uppercase font-mono mb-3 block">Endorsements</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-16 animate-on-scroll">Approved by Product Leaders
+      </h2>
+
+      <!-- Slider Wrapper -->
+      <div class="relative animate-on-scroll">
+        <div class="absolute -left-10 -top-10 w-24 h-24 rounded-full bg-indigo-500/10 blur-xl"></div>
+        <div class="absolute -right-10 -bottom-10 w-24 h-24 rounded-full bg-purple-500/10 blur-xl"></div>
+
+        <div class="glass-panel p-8 md:p-12 rounded-3xl border border-slate-800/80 text-left relative overflow-hidden">
+          <!-- Rating Stars -->
+          <div class="flex space-x-1.5 mb-6 text-amber-400 text-lg">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+
+          <!-- Quote Block -->
+          <p id="testimonial-text" class="text-base md:text-lg italic leading-relaxed text-slate-300 mb-8">
+            "Muhammad Umar Farooq delivered our cross-platform transaction app with outstanding quality. Frame rate drop
+            is near zero, and the overall VIP aesthetic of the design has substantially boosted our daily active user
+            rates. High-performance engineering at its finest."
+          </p>
+
+          <div class="flex justify-between items-center flex-wrap gap-4">
+            <div class="flex items-center space-x-4">
+              <div
+                class="w-12 h-12 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-2xl"
+                id="testimonial-avatar">
+                💼
+              </div>
+              <div>
+                <h4 id="testimonial-name" class="font-bold text-white text-base">Arthur de Silva</h4>
+                <p id="testimonial-role" class="text-xs text-indigo-400 font-semibold mt-0.5">CEO, CapitalFlow Ventures
+                </p>
+              </div>
+            </div>
+
+            <!-- Arrow controls -->
+            <div class="flex space-x-2">
+              <button onclick="prevTestimonial()"
+                class="w-10 h-10 rounded-full border border-slate-800 bg-slate-900 text-white flex items-center justify-center hover:bg-slate-800 transition-colors">←</button>
+              <button onclick="nextTestimonial()"
+                class="w-10 h-10 rounded-full border border-slate-800 bg-slate-900 text-white flex items-center justify-center hover:bg-slate-800 transition-colors">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Book a Call Section (Interactive Calendar + Golden Ticket Generator) -->
+  <section id="book-a-call" class="py-28 relative z-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Information content -->
+        <div class="space-y-6 animate-on-scroll">
+          <span
+            class="text-xs font-bold tracking-[0.3em] bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent uppercase font-mono block">VIP
+            Access Link</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">Secure Your Mobile Strategy
+            Consultation</h2>
+          <p class="text-base leading-relaxed text-slate-400">
+            Let's blueprint your upcoming cross-platform system. Select a date and window directly from the calendar
+            assistant to instantly generate an interactive priority boarding ticket.
+          </p>
+          <div class="space-y-4 pt-4 border-t border-slate-800/60">
+            <div class="flex items-start space-x-3">
+              <span class="text-indigo-400 font-bold mt-1">✓</span>
+              <div>
+                <h4 class="font-bold text-slate-300">Clean Performance Review</h4>
+                <p class="text-xs text-slate-400 mt-1">Direct feedback analyzing your required native SDK hooks and
+                  modular needs.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-indigo-400 font-bold mt-1">✓</span>
+              <div>
+                <h4 class="font-bold text-slate-300">Absolute Cost & Speed Estimates</h4>
+                <p class="text-xs text-slate-400 mt-1">Clear breakdowns concerning milestone structures and design
+                  pipelines.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form / Interactive Golden Ticket Window -->
+        <div class="relative animate-on-scroll">
+          <!-- Glow effect -->
+          <div class="absolute inset-0 bg-indigo-500/5 rounded-3xl blur-xl"></div>
+
+          <!-- Form Frame -->
+          <div id="booking-card-wrapper" class="relative">
+            <form id="booking-form" class="glass-panel p-8 rounded-3xl border border-slate-800 shadow-xl space-y-6"
+              onsubmit="handleBookingSubmit(event)">
+              <div>
+                <label class="block text-xs uppercase tracking-widest font-bold text-slate-400 mb-2 font-mono">Your Full
+                  Name</label>
+                <input type="text" id="book-name" required placeholder="e.g. Alexander Mercer"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+              </div>
+              <div>
+                <label
+                  class="block text-xs uppercase tracking-widest font-bold text-slate-400 mb-2 font-mono">Professional
+                  Email</label>
+                <input type="email" id="book-email" required placeholder="e.g. alexander@mercer.com"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+              </div>
+              <div>
+                <label class="block text-xs uppercase tracking-widest font-bold text-slate-400 mb-2 font-mono">Primary
+                  Objective</label>
+                <select id="book-type"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+                  <option>General App Architecture</option>
+                  <option>Native Custom Module Integration</option>
+                  <option>Creative Visual Design Identity</option>
+                  <option>Video & Motion Optimization</option>
+                </select>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs uppercase tracking-widest font-bold text-slate-400 mb-2 font-mono">Target
+                    Date</label>
+                  <input type="date" id="book-date" required
+                    class="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+                </div>
+                <div>
+                  <label
+                    class="block text-xs uppercase tracking-widest font-bold text-slate-400 mb-2 font-mono">Preferred
+                    Time</label>
+                  <input type="time" id="book-time" required
+                    class="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+                </div>
+              </div>
+              <button type="submit"
+                class="w-full py-4 rounded-xl font-bold bg-gradient-to-r from-indigo-500 via-purple-600 to-cyan-500 text-white shadow-xl hover:scale-[1.01] transition-all duration-300">Confirm
+                Appointment Slot</button>
+            </form>
+
+            <!-- Dynamic Ticket Template (Hidden initially, shown after form submission) -->
+            <div id="booking-ticket"
+              class="hidden ticket-gradient border-2 border-yellow-500/50 p-8 rounded-3xl text-slate-100 shadow-2xl relative overflow-hidden animate-fadeIn">
+              <!-- Golden micro glows -->
+              <div class="absolute -right-12 -bottom-12 w-32 h-32 bg-yellow-500/10 blur-xl"></div>
+
+              <!-- Header Info -->
+              <div class="flex justify-between items-center border-b border-slate-800/80 pb-6 mb-6">
+                <div>
+                  <span
+                    class="text-[9px] font-extrabold tracking-[0.2em] text-yellow-400 uppercase font-mono block">MUHAMMAD
+                    UMAR FAROOQ</span>
+                  <h4 class="text-lg font-bold text-white mt-1">CONSULTATION CONFIRMED</h4>
+                </div>
+                <span class="text-3xl text-yellow-400">🎫</span>
+              </div>
+
+              <!-- Ticket Rows -->
+              <div class="space-y-4 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-slate-400 font-mono text-xs">VIP SLOT KEY:</span>
+                  <span id="ticket-id" class="font-mono text-cyan-400 font-bold tracking-widest"></span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-400 font-mono text-xs">RESERVED FOR:</span>
+                  <span id="ticket-name" class="font-bold text-white uppercase"></span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-400 font-mono text-xs">MEETING REASON:</span>
+                  <span id="ticket-type" class="text-slate-300"></span>
+                </div>
+                <div class="flex justify-between border-t border-slate-800/80 pt-4">
+                  <span class="text-slate-400 font-mono text-xs">DATE:</span>
+                  <span id="ticket-date" class="text-indigo-400 font-bold font-mono"></span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-400 font-mono text-xs">TIME SLOT (GMT+5):</span>
+                  <span id="ticket-time" class="text-indigo-400 font-bold font-mono"></span>
+                </div>
+              </div>
+
+              <!-- Decorative Barcode -->
+              <div class="mt-8 pt-6 border-t border-slate-800/80 text-center">
+                <div id="ticket-barcode" class="text-slate-500 flex justify-center items-center">
+                  <!-- Barcode lines will be rendered via JS -->
+                </div>
+                <span class="block text-[8px] tracking-[0.4em] text-slate-500 font-mono mt-2">CONFIDENTIAL METRICS
+                  LAYER</span>
+              </div>
+
+              <!-- Disclaimer button -->
+              <button onclick="resetBookingForm()"
+                class="w-full mt-6 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs text-slate-400 hover:text-white font-mono border border-slate-800 transition-colors">Book
+                Alternative Slot</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="py-28 relative z-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+        <!-- Detailed Contact Pathways -->
+        <div class="space-y-8 animate-on-scroll">
+          <div>
+            <span
+              class="text-xs font-bold tracking-[0.3em] bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent uppercase font-mono mb-3 block">Communications
+              Channel</span>
+            <h2 class="text-3xl font-extrabold text-white">Let's Initiate Your Vision</h2>
+          </div>
+          <p class="text-base leading-relaxed text-slate-400">
+            Have a bespoke contract requirement, customized team layout request, or high-budget project blueprint? Reach
+            out directly via these channels, or fill out the secure encrypted form. Our representative will contact you
+            in under 12 hours.
+          </p>
+
+          <!-- Info Cards -->
+          <div class="space-y-4">
+            <div
+              class="p-5 rounded-2xl border border-slate-800 bg-slate-900/40 backdrop-blur-md flex items-center space-x-4">
+              <span class="text-3xl">📧</span>
+              <div>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest font-mono">Email Coordinates</h4>
+                <p class="text-sm font-semibold text-white mt-1">umarsaher112255@gmail.com
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="p-5 rounded-2xl border border-slate-800 bg-slate-900/40 backdrop-blur-md flex items-center space-x-4">
+              <span class="text-3xl">📍</span>
+              <div>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest font-mono">Geographic Zone</h4>
+                <p class="text-sm font-semibold text-white mt-1">Pakistan (Available Globally)</p>
+              </div>
+            </div>
+
+            <div
+              class="p-5 rounded-2xl border border-slate-800 bg-slate-900/40 backdrop-blur-md flex items-center space-x-4">
+              <span class="text-3xl">🕒</span>
+              <div>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest font-mono">Global Operational
+                  Hours</h4>
+                <p class="text-sm font-semibold text-white mt-1">09:00 AM - 09:00 PM (GMT+5)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Contact Form -->
+        <div class="relative animate-on-scroll">
+          <form id="contact-form" class="glass-panel p-8 rounded-3xl border border-slate-800 shadow-2xl space-y-6"
+            onsubmit="handleContactSubmit(event)">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs uppercase tracking-widest font-bold text-slate-400 mb-2 font-mono">Full
+                  Name</label>
+                <input type="text" id="contact-name" required
+                  class="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+              </div>
+              <div>
+                <label class="block text-xs uppercase tracking-widest font-bold text-slate-400 mb-2 font-mono">Email
+                  Address</label>
+                <input type="email" id="contact-email" required
+                  class="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+              </div>
+            </div>
+            <div>
+              <label
+                class="block text-xs uppercase tracking-widest font-bold text-slate-400 mb-2 font-mono">Subject</label>
+              <input type="text" id="contact-subject" required
+                class="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-widest font-bold text-slate-400 mb-2 font-mono">Your
+                Project Goals</label>
+              <textarea id="contact-message" rows="4" required
+                class="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"></textarea>
+            </div>
+            <button type="submit"
+              class="w-full py-4 rounded-xl font-bold bg-gradient-to-r from-indigo-500 via-purple-600 to-cyan-500 text-white shadow-xl hover:scale-[1.01] transition-all">Transmit
+              Secured Message</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Premium Footer -->
+  <footer class="relative z-20 border-t border-slate-800/80 bg-[#090D1A]/80 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
+      <!-- Col 1 -->
+      <div class="space-y-4">
+        <h4 class="text-lg font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+          Muhammad Umar Farooq</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Crafting premium mobile application environments and technical assets tailored for top-tier SaaS and corporate
+          standard worldwide.
+        </p>
+        <span
+          class="inline-block text-[9px] uppercase bg-slate-900 text-indigo-400 border border-indigo-500/20 px-2.5 py-1 rounded font-mono">Priority
+          Node Online</span>
+      </div>
+
+      <!-- Col 2 -->
+      <div class="space-y-3">
+        <h5 class="text-xs font-bold text-slate-300 uppercase tracking-widest font-mono">Navigational Paths</h5>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li><a href="#about" class="hover:text-indigo-400 transition-colors">About Story</a></li>
+          <li><a href="#services" class="hover:text-indigo-400 transition-colors">Core Services</a></li>
+          <li><a href="#experience" class="hover:text-indigo-400 transition-colors">Experience Matrix</a></li>
+          <li><a href="#portfolio" class="hover:text-indigo-400 transition-colors">Work Case Studies</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 -->
+      <div class="space-y-3">
+        <h5 class="text-xs font-bold text-slate-300 uppercase tracking-widest font-mono">Classifications</h5>
+        <ul class="space-y-2 text-xs text-slate-400 font-mono">
+          <li>Flutter & Dart Engine</li>
+          <li>iOS Widget Architectures</li>
+          <li>Android Native SDK</li>
+          <li>Figma Design Asset kits</li>
+        </ul>
+      </div>
+
+      <!-- Col 4 -->
+      <div class="space-y-3">
+        <h5 class="text-xs font-bold text-slate-300 uppercase tracking-widest font-mono">Encrypted Address</h5>
+        <p class="text-xs text-slate-400">umarsaher112255@gmail.com</p>
+        <p class="text-xs text-slate-400">+92 315 6651556</p>
+        <div class="flex space-x-4 pt-2">
+          <a href="https://github.com" target="_blank"
+            class="text-xs text-indigo-400 hover:text-white transition-colors">[GitHub]</a>
+          <a href="https://linkedin.com" target="_blank"
+            class="text-xs text-indigo-400 hover:text-white transition-colors">[LinkedIn]</a>
+          <a href="https://twitter.com" target="_blank"
+            class="text-xs text-indigo-400 hover:text-white transition-colors">[Twitter]</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 mt-12 pt-6 border-t border-slate-900 text-center">
+      <p class="text-[10px] text-slate-500 font-mono">© 2026 Muhammad Umar Farooq. Created with high-fidelity native web
+        technology solutions.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Widget (Fixed) -->
+  <div id="whatsapp-wrapper" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <!-- Chat popup box -->
+    <div id="whatsapp-box"
+      class="hidden mb-4 w-80 rounded-2xl border border-slate-800 bg-slate-950/95 text-slate-100 shadow-2xl transition-all duration-300 transform scale-95 opacity-0 origin-bottom-right overflow-hidden">
+      <!-- Header -->
+      <div class="flex items-center space-x-3 p-4 border-b border-slate-800/60 bg-slate-900/60">
+        <div class="relative">
+          <div class="w-10 h-10 rounded-full overflow-hidden bg-slate-800 border border-indigo-500/30">
+            <img src="assets/images/portal.jpeg" alt="Umar Portrait" class="w-full h-full object-cover object-top" />
+          </div>
+          <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-green-500 border-2 border-slate-950"></span>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-white">Umar Farooq</h4>
+          <p class="text-[9px] text-green-400 font-bold uppercase tracking-wider font-mono">Online &amp; Ready</p>
+        </div>
+      </div>
+      <!-- Message input -->
+      <div class="p-4 space-y-3">
+        <p class="text-xs text-slate-400">Send a quick message to get started:</p>
+        <input id="whatsapp-msg-input" type="text" placeholder="Type your message..."
+          value="Hello! I want to discuss a project."
+          class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs focus:outline-none focus:ring-1 focus:ring-emerald-500" />
+        <button onclick="launchWhatsApp()"
+          class="w-full py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center justify-center space-x-2 transition-colors">
+          <span>Open WhatsApp</span><span>💬</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Toggle button -->
+    <button onclick="toggleWhatsApp()"
+      class="flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-3.5 rounded-full shadow-2xl hover:scale-105 transition-all duration-300">
+      <div class="relative">
+        <span class="animate-ping absolute -inset-1 rounded-full bg-emerald-400 opacity-60"></span>
+        <span class="text-lg relative">💬</span>
+      </div>
+      <span class="text-xs font-extrabold tracking-wide uppercase font-mono">Chat on WhatsApp</span>
+    </button>
+  </div>
+
+  <!-- Case Study Interactive Detail Modal -->
+  <div id="project-modal"
+    class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4 animate-fadeIn">
+    <div
+      class="max-w-2xl w-full rounded-3xl border border-slate-800 bg-slate-950 text-slate-100 overflow-hidden relative shadow-2xl flex flex-col" style="max-height:90vh">
+      <!-- Scrollable content -->
+      <div class="overflow-y-auto p-8 flex-1">
+        <!-- Close trigger -->
+        <button onclick="closeProjectModal()"
+          class="absolute top-4 right-4 text-slate-400 hover:text-white bg-slate-900 w-10 h-10 rounded-full flex items-center justify-center border border-slate-800 z-10">✕</button>
+
+        <!-- Header row -->
+        <div class="flex items-center gap-4 mb-5">
+          <div id="modal-icon"
+            class="text-4xl bg-indigo-500/10 w-14 h-14 rounded-2xl flex items-center justify-center border border-indigo-500/20 flex-shrink-0">📱</div>
+          <div>
+            <span id="modal-category" class="text-[10px] font-extrabold tracking-widest text-indigo-400 uppercase font-mono block mb-1">Mobile Apps</span>
+            <h3 id="modal-title" class="text-xl font-bold text-white">Project Title</h3>
+          </div>
+        </div>
+
+        <!-- Screenshot Gallery (injected by JS) -->
+        <div id="modal-gallery" class="mb-5"></div>
+
+        <!-- Description -->
+        <p id="modal-description" class="text-sm text-slate-300 leading-relaxed mb-5"></p>
+
+        <!-- Features -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest font-mono">Key Features</h4>
+          <ul id="modal-features" class="space-y-2 text-xs text-slate-300"></ul>
+        </div>
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="flex space-x-3 border-t border-slate-800 p-5 bg-slate-950/80 backdrop-blur flex-shrink-0">
+        <a href="https://github.com/Beingasacoder" target="_blank"
+          class="flex-1 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold rounded-xl text-xs text-center block">View on GitHub</a>
+        <a href="https://umarsaher112255@gmail.com"
+          class="px-5 py-3 border border-slate-800 hover:bg-slate-800 text-white font-bold rounded-xl text-xs text-center block">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unified Custom Toast  Notification Container (Avoiding browser alert) -->
+  <div id="toast"
+    class="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden bg-indigo-950 border border-indigo-500 text-slate-100 px-6 py-3.5 rounded-2xl shadow-2xl items-center space-x-3 max-w-sm w-full">
+    <span class="text-xl">✨</span>
+    <div class="flex-1">
+      <h5 class="text-xs font-bold font-mono text-cyan-400 uppercase">SYSTEM TRANSMISSION</h5>
+      <p id="toast-message" class="text-xs text-slate-300 mt-0.5">App status notification updated.</p>
+    </div>
+    <button onclick="dismissToast()" class="text-slate-400 hover:text-white text-xs">✕</button>
+  </div>
+
+  
+
+  <script src="script.js"></script>
+</body>
+
+</html>
